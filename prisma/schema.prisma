@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model userfirst {
+  id       Int       @id @default(autoincrement())
+  username String    @db.VarChar(100)
+  password String    @db.Text
+  name     String    @db.VarChar(100)
+  token    String?   @db.VarChar(100)
+  contact  contact[]
+}
+
+model usersecond {
+  id       Int    @id @default(autoincrement())
+  username String @db.VarChar(20)
+  password String @db.VarChar(20)
+  nawa     String @db.VarChar(20)
+  kode     String @db.VarChar(100)
+}
+
+model address {
+  id          Int     @id @default(autoincrement())
+  street      String? @db.Text
+  city        String? @db.VarChar(100)
+  province    String? @db.VarChar(100)
+  country     String  @db.VarChar(100)
+  postal_code String  @db.VarChar(10)
+  contact_id  Int
+  contact     contact @relation(fields: [contact_id], references: [id], onDelete: Cascade, map: "addresses_contacts_id")
+
+  @@index([contact_id], map: "addresses_contacts_id")
+}
+
+model contact {
+  id           Int       @id @default(autoincrement())
+  first_name   String    @db.VarChar(100)
+  last_name    String?   @db.VarChar(100)
+  email        String?   @db.VarChar(100)
+  phone        String?   @db.VarChar(20)
+  userfirst_id Int
+  address      address[]
+  userfirst    userfirst @relation(fields: [userfirst_id], references: [id], onDelete: Cascade, map: "contact_users_id")
+
+  @@index([userfirst_id], map: "contact_users_id")
+}

@@ -1,0 +1,1 @@
+app.js -> application(web.js) -> routes -> controller -> service

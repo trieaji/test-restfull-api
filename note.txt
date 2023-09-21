@@ -1,0 +1,28 @@
+Dalam menuliskan keyword export kadangkala kita menemukan yang diimbuhi dengan keyword default. 
+Ketika kita menggunakan imbuhan default maka ketika import kita tidak perlu menggunakan symbol bracket { }. 
+Namun sebaliknya jika kita tidak menggunakan imbuhan default maka kita harus menggunakan symbol bracket {}.
+
+
+
+{
+    "username": "Chimera",
+    "password": "rahasia"
+}
+
+{
+    "username": "zold",
+    "password": "hunter123",
+    "nawa": "zeno"
+}
+
+{
+    "username": "leo",
+    "password": "isha",
+    "nawa": "leorio"
+}
+
+{
+    "username": "zikriganteng",
+    "password": "okee",
+    "nawa": "zikri"
+}
