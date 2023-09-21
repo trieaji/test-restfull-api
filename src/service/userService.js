@@ -96,7 +96,7 @@ const get = async (request) => {
     // logger.info(user)
 
     if(!user) {
-        throw new ResponseError(404, "User is not found")
+        throw new ResponseError(404, "User is not found oke")
     }
 
     // console.log('=== user aja ===')
